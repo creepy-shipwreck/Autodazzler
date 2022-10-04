@@ -211,6 +211,14 @@ function renderUsingConfigurations(
     oRenderOptions.renderImgFilename = sTargetFilename
     oRenderOptions.renderImgToId = oRenderOptions.DirectToFile
 
+    var propHolder = App.getRenderMgr().getActiveRenderer().getPropertyHolder();
+    if (oRenderConfiguration.maxSamples) {
+      propHolder.findProperty('Max Samples').setValue(oRenderConfiguration.maxSamples)
+    }
+    if (oRenderConfiguration.denoiserStartIteration) {
+      propHolder.findProperty('Post Denoiser Start Iteration').setValue(oRenderConfiguration.denoiserStartIteration)
+    }
+
     var bCanWrite = canWriteRenderFile(oRenderConfiguration, oSceneConfiguration, oStepContext, false)
     if (!bCanWrite) {
       return TaskResult.Failed;

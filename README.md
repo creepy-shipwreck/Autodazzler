@@ -126,6 +126,8 @@ You also can't set `quitAutomatically` to `true` if you also set `interactive` t
 
 - `cameraName`: (`string`) the name of the camera to use; this parameter is optional, if not specified, Autodazzler will fallback to the camera selected in the scene;
 - `renderFilename `: (`string`) the name of the render;
+- `maxSamples`: (`int`) max samples for the iRay progressive renderer
+- `denoiserStartIteration`: (`int`) iteration the denoiser kicks in; setting this larger than maxSamples deactivates denoiser
 - `presets`: (`array`) contains zero or more of:
     - (`string`) a path pointing a preset that should be applied globally;
     - (`object` / `key: value`) a pair where the value a path pointing a preset and the key is the name of the object to which the preset should be applied; this is typically usueful to change poses between renders;
